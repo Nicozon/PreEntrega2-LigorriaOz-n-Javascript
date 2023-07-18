@@ -1,0 +1,10 @@
+/* body */
+
+body{
+    font-family:'Courier New', Courier, monospace;
+    background-color:rgba(20, 180, 220, 0.425);
+    color:black;
+    text-align: center;
+    padding: 50px;
+    margin-top: 150px;
+}
