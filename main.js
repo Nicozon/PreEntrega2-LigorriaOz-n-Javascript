@@ -8,25 +8,25 @@ class Participante {
   }
 }
 
-// AAAAAAAAAAAAAAAAAAAAAA
-// Obtener referencia al elemento select "pais"
+// conecta al elemento select "pais"
 const selectPais = document.getElementById("pais");
-// Obtener referencia al div para mostrar la información del país inscrito
+
+// conecta para mostrar la información del país inscrito
 const paisInscritoDiv = document.getElementById("paisInscrito");
-// Obtener referencias a los elementos donde se mostrará la información del país
+
+// referencia para mostrar información del país
 const nombrePais = document.getElementById("nombrePais");
 const capitalPais = document.getElementById("capitalPais");
 const poblacionPais = document.getElementById("poblacionPais");
-// AAAAAAAAAAAAAAAAAAAAAA
 
 // Función para verificar si ya existe un participante con el mismo nombre y apellido
 function verificarNombreApellidoRepetido(nombre, apellido) {
   for (const participante of listaParticipantes) {
     if (participante.nombre === nombre && participante.apellido === apellido) {
-      return true; // El nombre y apellido ya existen, se encontró un participante con el mismo nombre y apellido
+      return true; // Si se encontró un participante con el mismo nombre y apellido
     }
   }
-  return false; // El nombre y apellido no se encontraron, no están repetidos
+  return false; // Si no está repetido
 }
 
 // Función para verificar si ya hay dos participantes inscritos desde un país y organismo específicos
@@ -42,7 +42,7 @@ function verificarParticipantesPorPaisYOrganismo(pais, organismo) {
 
 let listaParticipantes = [];
 
-// Obtener referencia al formulario
+// Referencia al formulario
 const formulario = document.getElementById("formularioInscripcion");
 
 // Función para realizar la inscripción
@@ -66,20 +66,19 @@ function realizarInscripcion(event) {
   swal("Error", "Ya hay dos participantes inscritos desde este país y organismo.", "error");
   return;
 }
-// New participante
+
+// Nuevo participante
   const participante = new Participante(nombre, apellido, organismo, pais);
   listaParticipantes.push(participante);
   guardarEnLocalStorage(); 
 
-// AAAAAAAAAAAAAAAAAAAAAAAAAAAA
  // Mostrar la información del país inscrito en el div correspondiente
 mostrarPaisInscrito(pais);
-// AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 // Guardar en local storage
   mostrarParticipantes();
 
-  // Utilizamos SweetAlert para mostrar el mensaje de inscripción exitosa
+// Utilizamos SweetAlert para mostrar el mensaje de inscripción exitosa
   swal("¡Inscripción exitosa!", "", "success");
 
 // Limpiar el formulario después de la inscripción
@@ -128,7 +127,7 @@ function mostrarParticipantes() {
 // Utilizamos SweetAlert para mostrar una alerta de confirmación antes de borrar la lista
     swal({
       title: "¿Estás seguro?",
-      text: "Esto eliminará todos los participantes de la lista.",
+      text: "Estás por eliminar todos los participantes de la lista.",
       icon: "warning",
       buttons: ["Cancelar", "Sí, estoy seguro"],
       dangerMode: true,
@@ -143,16 +142,13 @@ function mostrarParticipantes() {
     });
   }
 
-
 // Agregar el evento "click" al botón para limpiar la lista
   btnBorrarLista.addEventListener("click", borrarLista);
 
-// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
   // Limpiar la información previa del país inscrito
   nombrePais.textContent = "";
   capitalPais.textContent = "";
   poblacionPais.textContent = "";
-
 
 function mostrarPaisInscrito(pais) {
   // Realizar el fetch a la API con el país seleccionado
@@ -160,7 +156,7 @@ function mostrarPaisInscrito(pais) {
     .then(response => response.json())
     .then(data => {
       // Obtener la información del país desde la API
-      const countryInfo = data[0]; // Suponiendo que el primer resultado contiene la información del país
+      const countryInfo = data[0]; 
 
       // Mostrar la información del país en el div correspondiente
       nombrePais.textContent = `Nombre del país: ${countryInfo.name.common}`;
@@ -171,4 +167,3 @@ function mostrarPaisInscrito(pais) {
       console.error("Error al obtener información del país:", error);
     });
 }
-// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

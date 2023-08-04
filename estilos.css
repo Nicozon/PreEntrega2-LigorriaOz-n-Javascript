@@ -8,3 +8,15 @@ body{
     padding: 50px;
     margin-top: 150px;
 }
+
+h1{
+    font-weight: 700;
+}
+
+h2{
+    font-weight: 700;
+}
+
+label{
+    font-weight: 700;
+}
