@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Vinculo a estilos -->
     <link rel="stylesheet" href="./estilos.css">
+<!-- Vínculo Sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Inscripción al Modelo de Naciones Unidas</title>
 </head>
 <body>
@@ -16,16 +18,58 @@
         <input type="text" id="nombre" required><br>
         <label for="apellido">Apellido:</label>
         <input type="text" id="apellido" required><br>
-        <label for="edad">Edad:</label>
-        <input type="number" id="edad" required><br>
+        <label for="Organismo">Organismo:</label>
+        <select name="organismo" id="organismo">
+            <option value="Asamblea General">Asamblea General</option>
+            <option value="Consejo de DDHH">Consejo de DDHH</option>
+            <option value="ECOSOC">ECOSOC</option>
+        </select><br>
         <label for="pais">País:</label>
-        <input type="text" id="pais" required><br>
+        <select name="pais" id="pais">
+            <option value="Argentina">Argentina</option>
+            <option value="Australia">Australia</option>
+            <option value="Brasil">Brasil</option>
+            <option value="Canada">Canadá</option>
+            <option value="Macau">China</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Egypt">Egipto</option>
+            <option value="España">España</option>
+            <option value="United States">Estados Unidos</option>
+            <option value="France">Francia</option>
+            <option value="India">India</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="Italia">Italia</option>
+            <option value="Japan">Japón</option>
+            <option value="Estados unidos mexicanos">México</option>
+            <option value="Nigeria">Nigeria</option>
+            <option value="Netherlands">Países Bajos</option>
+            <option value="United Kingdom">Reino Unido</option>
+            <option value="Russia">Rusia</option>
+            <option value="South Africa">Sudáfrica</option>
+            <option value="Sweden">Suecia</option>
+            <option value="Switzerland">Suiza</option>
+            <option value="Thailand">Tailandia</option>
+            <option value="Turkey">Turquía</option>
+            <option value="Ukraine">Ucrania</option>
+            <option value="Uruguay">Uruguay</option>
+            <option value="Venezuela">Venezuela</option>
+            <option value="Vietnam">Vietnam</option>
+        </select><br>
         <input type="submit" value="Realizar inscripción">
     </form>
 <!-- Lista de participantes inscritos -->
 <h2>Lista de participantes inscritos:</h2>
     <ul id="listaParticipantes"></ul>
     <button id="btnBorrarLista">Borrar</button>
+
+<!-- Div para mostrar la información del país inscrito -->
+<div id="paisInscrito">
+    <h3>Información del país inscrito:</h3>
+    <p id="nombrePais"></p>
+    <p id="capitalPais"></p>
+    <p id="poblacionPais"></p>
+</div>
+
 <!-- Vínculo a documento Javascript -->
     <script src="./main.js"></script>
 </body>
